@@ -5,11 +5,11 @@ clean:
 	rm -f coverage.xml
 
 
-test: clean lint
+test: clean
 	pytest --cov=. tests
 
 coverage: clean
-	pytest tests --cov=.
+	pytest tests --cov=. --cov-report=html
 
 dependencies:
 	docker compose up -d db

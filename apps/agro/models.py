@@ -1,4 +1,8 @@
+import re
+
 from django.db import models
+
+DOCUMENT_REGEX = r'(\.|\-|\/)'
 
 
 class Farmer(models.Model):
@@ -8,7 +12,11 @@ class Farmer(models.Model):
     class Meta:
         db_table = 'farmer'
 
-    def __repr__(self):
+    def save(self, *args, **kwargs):
+        self.document = re.sub(DOCUMENT_REGEX, '', self.document)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
         return f'{self.document} - {self.name}'
 
 
@@ -42,5 +50,5 @@ class Farm(models.Model):
     class Meta:
         db_table = 'farm'
 
-    def __repr__(self):
+    def __str__(self):
         return self.name
