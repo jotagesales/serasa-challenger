@@ -14,3 +14,8 @@ docker compose up --build
 ```
 Ps: On de first time maybe is not possible connect to database, because is loading initial data
 if is your case please stop the containers ```CTRL + C``` and run again.
+
+## [Public access](https://serasa-c3ec3b6beea3.herokuapp.com/)
+```
+https://serasa-c3ec3b6beea3.herokuapp.com/
+```
