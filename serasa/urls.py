@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from apps.agro.api.v1 import views
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -39,3 +42,4 @@ urlpatterns = [
     path('api/v1/', include('apps.agro.api.v1.urls')),
     path("farm/analytics/", views.FarmAnalyticsView.as_view(), name='farm-analytics'),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
