@@ -42,4 +42,3 @@ urlpatterns = [
     path('api/v1/', include('apps.agro.api.v1.urls')),
     path("farm/analytics/", views.FarmAnalyticsView.as_view(), name='farm-analytics'),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
